@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>'Learning node.js'</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <style>
+        body {
+            font-family: calibri;
+            margin: auto;
+            width: 80%;
+        }
+
+        h1 {
+            text-align: left;
+            padding: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            padding: 10px;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="border-bottom: firebrick 2px solid; color:firebrick">Learning <span style="color:green;font-weight: bolder">node.js</span>
+    </h1>
+    <p style="background: lavender; border-radius: 5px; color: green">Sunt ad aute culpa laboris reprehenderit exercitation magna veniam labore nulla. Minim ea consectetur eiusmod labore
+        adipisicing exercitation adipisicing ex eu magna. Occaecat enim dolore eiusmod laborum sit sit elit Beam-boy.</p>
+    <h3 style="color:firebrick">Add New Customer</h3>
+    <form method="POST" action="/addusers">
+        <label style="color:green; padding:5px">Name:</br></label>
+        <input type="text" name="name" placeholder="Pls Enter your name" style="color:gray;padding:4px"></br>
+
+        <label style="color:green; padding:5px">Age:</br></label>
+        <input type="number" name="age" placeholder="Pls Enter your Age" style="color:gray;padding:4px"></br>
+
+
+        <label style="color:green; padding:5px">Email</br></label>
+        <input type="text" name="email" placeholder="Pls Enter your Email" style="color:gray;padding:4px"></br>
+        </br>
+        <input type="submit" name="submit" value="Submit" style="color:white;padding:4px; background: Green; padding:5px; border:none; border-radius: 5px"></br>
+
+    </form>
+
+    <% if(errors!=undefined){ %>
+        <ul style="list-style:armenian; color: green">
+            <% errors.forEach(function(error)
+            {%>
+                <li>
+                    <%= error.msg %>
+                </li>
+                <%
+                }); %>
+        </ul>
+        <% } %>
+
+
+            <h3 style="color:firebrick"> Existing <span style="color:green">Customer Details</span></h3>
+            <ul style="list-style:armenian; color: green">
+                <% people.forEach(function(user)
+            {%>
+                    <li>
+                        <%= user.name %> - <button style="color:white; background: firebrick;padding:5px; border: none; margin: 5px; border-radius: 5px;" class="deleteUser" data-id="<%= user._id %>">Delete</button>
+                    </li>
+                    <%
+                }); %>
+            </ul>
+</body>
+
+</html>
